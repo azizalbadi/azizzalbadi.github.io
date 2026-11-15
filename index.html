@@ -4,136 +4,629 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Independent Software Developer interested in Artificial Intelligence and Software Engineering.">
-  <title>Aziz Albadi | Independent Developer</title>
+  <meta name="theme-color" content="#101114">
+  <meta name="description" content="Aziz Albadi — Independent Software Developer, AI Enthusiast and Digital Product Designer.">
+  <title>Aziz Albadi | Developer & Digital Creator</title>
 
   <style>
+    :root {
+      --bg: #101114;
+      --panel: #17191e;
+      --panel-light: #1d2026;
+      --gold: #c8a96e;
+      --gold-light: #e6d1a6;
+      --text: #f3f1eb;
+      --muted: #9b9da5;
+      --border: rgba(255,255,255,.09);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f7f8fa;
-      color: #202938;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 25px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .container {
-      width: 100%;
-      max-width: 760px;
-      background: #ffffff;
-      padding: 65px 45px;
-      border-radius: 18px;
-      border: 1px solid #e8ebef;
-      text-align: center;
+      width: min(1120px, 90%);
+      margin: auto;
     }
 
-    .tag {
-      display: inline-block;
-      padding: 9px 16px;
-      background: #eef2ff;
-      color: #4256a6;
-      border-radius: 30px;
+    nav {
+      height: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      color: var(--muted);
       font-size: 13px;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 620px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      padding: 90px 0;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      right: -100px;
+      top: 100px;
+      background: radial-gradient(
+        circle,
+        rgba(200,169,110,.13),
+        transparent 70%
+      );
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      font-weight: 700;
       margin-bottom: 25px;
     }
 
     h1 {
-      font-size: 38px;
-      margin-bottom: 12px;
-      letter-spacing: -1px;
+      font-size: clamp(48px, 8vw, 86px);
+      line-height: 1.08;
+      letter-spacing: -3px;
+      max-width: 850px;
+      font-weight: 700;
+    }
+
+    h1 span {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 620px;
+      margin: 30px 0;
+      line-height: 1.9;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn {
+      padding: 13px 23px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: .25s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #171717;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    section {
+      padding: 95px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      color: var(--gold);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 15px;
     }
 
     h2 {
-      font-size: 18px;
-      color: #667085;
-      font-weight: 400;
-      margin-bottom: 28px;
+      font-size: clamp(30px, 5vw, 43px);
+      letter-spacing: -1px;
+      margin-bottom: 20px;
     }
 
-    p {
-      font-size: 16px;
-      line-height: 1.9;
-      color: #667085;
-      max-width: 570px;
-      margin: 0 auto 25px;
+    .section-intro {
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 45px;
+      font-size: 15px;
     }
 
-    .interests {
-      margin: 30px 0;
-      color: #344054;
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 2;
+    }
+
+    .about-note {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: 8px;
+    }
+
+    .about-note strong {
+      display: block;
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .about-note p {
+      color: var(--muted);
       font-size: 14px;
-      line-height: 2.2;
     }
 
-    a {
-      color: #4256a6;
-      text-decoration: none;
-      font-weight: 600;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .skill-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 28px;
+      border-radius: 7px;
+      transition: .25s;
+    }
+
+    .skill-card:hover {
+      border-color: rgba(200,169,110,.55);
+      transform: translateY(-5px);
+    }
+
+    .skill-number {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .skill-card h3 {
+      margin: 20px 0 12px;
+      font-size: 18px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 32px;
+      min-height: 230px;
+    }
+
+    .project-type {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .project h3 {
+      font-size: 23px;
+      margin: 20px 0 12px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .project-status {
+      display: inline-block;
+      color: var(--gold-light);
+      border: 1px solid rgba(200,169,110,.25);
+      padding: 5px 10px;
+      border-radius: 3px;
+      margin-top: 20px;
+      font-size: 11px;
+    }
+
+    .vision {
+      text-align: center;
+      background: linear-gradient(135deg, #191a1d, #111216);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 65px 35px;
+    }
+
+    .vision h2 {
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .vision p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 15px;
     }
 
     footer {
-      margin-top: 45px;
-      padding-top: 20px;
-      border-top: 1px solid #edf0f3;
-      color: #98a2b3;
-      font-size: 13px;
+      padding: 35px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 12px;
     }
 
-    @media (max-width: 600px) {
-      .container {
-        padding: 45px 22px;
+    footer a {
+      color: var(--gold);
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        gap: 13px;
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: 540px;
+      }
+
+      .about-grid,
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-grid {
+        gap: 25px;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .nav-links {
+        gap: 9px;
+        font-size: 10px;
+      }
+
+      .logo {
+        font-size: 16px;
       }
 
       h1 {
-        font-size: 30px;
+        letter-spacing: -2px;
       }
     }
   </style>
 </head>
 
 <body>
-  <main class="container">
-    <span class="tag">Independent Developer</span>
 
-    <h1>Aziz Albadi</h1>
-    <h2>Software Development & Artificial Intelligence</h2>
+  <div class="container">
 
-    <p>
-      I am an independent software developer interested in
-      building practical software solutions and exploring
-      artificial intelligence technologies.
-    </p>
+    <nav>
+      <a href="#" class="logo">AZIZ<span>.</span></a>
 
-    <p>
-      My interests include AI-assisted software development,
-      application architecture, programming, automation,
-      and technical research.
-    </p>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#expertise">Expertise</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
 
-    <div class="interests">
-      Software Engineering · Artificial Intelligence<br>
-      Application Development · Technical Research
-    </div>
+    <header class="hero">
+      <div class="eyebrow">Independent Developer · Digital Creator</div>
 
-    <a href="https://github.com/azizalbadi" target="_blank">
-      Visit my GitHub profile
-    </a>
+      <h1>
+        Building Ideas.<br>
+        Creating <span>Digital</span><br>
+        Experiences.
+      </h1>
+
+      <p class="hero-description">
+        I am Aziz Albadi, an independent software developer
+        exploring the intersection of software engineering,
+        artificial intelligence, and thoughtful digital design.
+        I turn ideas into structured, practical digital experiences.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#projects">
+          Explore My Work
+        </a>
+
+        <a class="btn btn-outline"
+           href="https://github.com/azizalbadi"
+           target="_blank" rel="noopener noreferrer">
+          GitHub Profile ↗
+        </a>
+      </div>
+    </header>
+
+    <section id="about">
+      <div class="section-label">01 / About Me</div>
+      <h2>Technology with Purpose.</h2>
+
+      <div class="about-grid">
+        <p class="about-text">
+          My focus is on understanding how technology can solve
+          real problems through well-structured software,
+          intelligent systems, and clean user experiences.
+
+          <br><br>
+
+          I enjoy working across the development process —
+          from defining an idea and planning its architecture
+          to building interfaces, exploring integrations,
+          and improving the final experience.
+
+          <br><br>
+
+          I believe great software is not only about code.
+          It is also about clarity, usability, reliability,
+          and attention to detail.
+        </p>
+
+        <div class="about-note">
+          <strong>MY APPROACH</strong>
+          <p>
+            Think strategically. Design thoughtfully.
+            Build carefully. Improve continuously.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="section-label">02 / Areas of Focus</div>
+      <h2>Technical Interests & Capabilities.</h2>
+
+      <p class="section-intro">
+        Areas I explore through software projects,
+        technical learning, and hands-on development.
+      </p>
+
+      <div class="skills-grid">
+
+        <article class="skill-card">
+          <div class="skill-number">01 — DEVELOPMENT</div>
+          <h3>Software Engineering</h3>
+          <p>
+            Application development, programming,
+            project structure, software architecture,
+            and practical problem solving.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-number">02 — DESIGN</div>
+          <h3>UI & Digital Design</h3>
+          <p>
+            Responsive interfaces, visual hierarchy,
+            modern layouts, usability, and
+            consistent digital experiences.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-number">03 — INTELLIGENCE</div>
+          <h3>Artificial Intelligence</h3>
+          <p>
+            AI-assisted development, model integration,
+            intelligent workflows, and exploring
+            private AI environments.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-number">04 — SYSTEMS</div>
+          <h3>Web Applications</h3>
+          <p>
+            Web platforms, APIs, database concepts,
+            application integration, and
+            connected digital services.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-number">05 — AUTOMATION</div>
+          <h3>Automation & Tools</h3>
+          <p>
+            Development workflows, automation concepts,
+            productivity tools, and connecting
+            different technologies.
+          </p>
+        </article>
+
+        <article class="skill-card">
+          <div class="skill-number">06 — RESEARCH</div>
+          <h3>Technical Research</h3>
+          <p>
+            Exploring new technologies, evaluating
+            technical approaches, and translating
+            ideas into structured solutions.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-label">03 / Selected Projects</div>
+      <h2>Ideas in Development.</h2>
+
+      <p class="section-intro">
+        A selection of independent concepts and development
+        initiatives that reflect my technical interests.
+      </p>
+
+      <div class="projects-grid">
+
+        <article class="project">
+          <div class="project-type">Digital Platform</div>
+          <h3>Leena — لينا</h3>
+          <p>
+            A multi-vendor delivery and commerce platform
+            concept designed to connect customers,
+            restaurants, and retail businesses through
+            an integrated digital experience.
+          </p>
+          <span class="project-status">Independent Project</span>
+        </article>
+
+        <article class="project">
+          <div class="project-type">Interactive Application</div>
+          <h3>Interactive Training Academy</h3>
+          <p>
+            An educational aviation simulation project
+            focused on interactive learning, 3D
+            visualization, technical systems, and
+            structured training experiences.
+          </p>
+          <span class="project-status">Development Project</span>
+        </article>
+
+        <article class="project">
+          <div class="project-type">AI & Infrastructure</div>
+          <h3>Private AI Environment</h3>
+          <p>
+            Exploring cloud-based AI infrastructure,
+            model integration, private access,
+            and intelligent development workflows.
+          </p>
+          <span class="project-status">Research & Development</span>
+        </article>
+
+        <article class="project">
+          <div class="project-type">Web Engineering</div>
+          <h3>Web Applications & Systems</h3>
+          <p>
+            Exploring full-stack application development,
+            user interfaces, backend services,
+            integrations, and deployment workflows.
+          </p>
+          <span class="project-status">Independent Development</span>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="vision">
+        <div class="section-label">04 / The Vision</div>
+
+        <h2>
+          Curiosity Drives Innovation.
+          Execution Creates Value.
+        </h2>
+
+        <p>
+          I am continuously exploring new technologies,
+          improving my development skills, and building
+          digital solutions with a focus on quality,
+          simplicity, and meaningful results.
+        </p>
+
+        <div class="actions" style="justify-content:center">
+          <a class="btn btn-primary"
+             href="https://github.com/azizalbadi"
+             target="_blank" rel="noopener noreferrer">
+            Connect on GitHub ↗
+          </a>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      © 2026 Aziz Albadi. Personal website.
+      <div>© 2026 Aziz Albadi. All rights reserved.</div>
+      <div>Designed with purpose. Built with curiosity.</div>
     </footer>
-  </main>
+
+  </div>
+
 </body>
 </html>
